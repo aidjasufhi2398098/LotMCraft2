@@ -4,6 +4,7 @@ import de.jakob.lotm.LOTMCraft;
 import de.jakob.lotm.attachments.ModAttachments;
 import de.jakob.lotm.attachments.QuestComponent;
 import de.jakob.lotm.network.PacketHandler;
+import de.jakob.lotm.potions.BeyonderPotion;
 import de.jakob.lotm.network.packets.toClient.OpenQuestAcceptanceScreenPacket;
 import de.jakob.lotm.util.BeyonderData;
 import net.minecraft.network.chat.Component;
@@ -32,7 +33,7 @@ public class QuestManager {
         if(!component.getQuestProgress().containsKey(questId))
             return;
 
-        List<ItemStack> rewards = component.getLockedQuestRewards().getOrDefault(questId, quest.getRewards(player));
+        List<ItemStack> rewards = filterDisallowedPotionRewards(component.getLockedQuestRewards().getOrDefault(questId, quest.getRewards(player)));
         for(ItemStack reward : rewards) {
             ItemStack rewardCopy = reward.copy();
             if(!player.addItem(rewardCopy)) {
@@ -81,7 +82,7 @@ public class QuestManager {
 
         // Get quest information
         List<ItemStack> rewards = component.getLockedQuestRewards()
-                .computeIfAbsent(questId, ignored -> quest.getRewards(player).stream().map(ItemStack::copy).toList())
+                .computeIfAbsent(questId, ignored -> filterDisallowedPotionRewards(quest.getRewards(player)))
                 .stream()
                 .map(ItemStack::copy)
                 .toList();
@@ -122,7 +123,7 @@ public class QuestManager {
         }
 
         component.getQuestProgress().put(questId, 0f);
-        component.getLockedQuestRewards().computeIfAbsent(questId, ignored -> quest.getRewards(player).stream().map(ItemStack::copy).toList());
+        component.getLockedQuestRewards().computeIfAbsent(questId, ignored -> filterDisallowedPotionRewards(quest.getRewards(player)));
         component.getLockedQuestDigestionRewards().computeIfAbsent(questId, ignored -> quest.getDigestionReward(player));player.sendSystemMessage(Component.translatable("lotm.quest.accepted", Component.translatable("lotm.quest.impl." + questId).getString()).withColor(0x4CAF50));
         quest.startQuest(player);
         player.sendSystemMessage(quest.getDescription(player).withColor(0x4CAF50));
@@ -201,6 +202,19 @@ public class QuestManager {
                 }
             }
         }
+    }
+
+    private static List<ItemStack> filterDisallowedPotionRewards(List<ItemStack> rewards) {
+        List<ItemStack> filteredRewards = new ArrayList<>();
+
+        for (ItemStack reward : rewards) {
+            if (reward.getItem() instanceof BeyonderPotion potion && potion.getSequence() <= 4) {
+                continue;
+            }
+            filteredRewards.add(reward.copy());
+        }
+
+        return filteredRewards;
     }
 
     // TODO: Add animations for quest completion and quest progress
