@@ -2,7 +2,6 @@ package de.jakob.lotm.util.helper.marionettes;
 
 import de.jakob.lotm.attachments.ModAttachments;
 import de.jakob.lotm.entity.custom.goals.*;
-import de.jakob.lotm.events.AdvancementsEventHandler;
 import de.jakob.lotm.item.ModItems;
 import de.jakob.lotm.network.PacketHandler;
 import de.jakob.lotm.network.packets.toClient.SyncBeyonderDataPacket;
@@ -10,11 +9,6 @@ import de.jakob.lotm.util.BeyonderData;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
-import net.minecraft.world.entity.npc.Villager;
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.*;
@@ -74,30 +68,6 @@ public class MarionetteUtils {
 
         if (!controller.getInventory().add(controllerItem)) {
             controller.drop(controllerItem, false);
-        }
-
-        if (entity instanceof Villager villager && controller instanceof ServerPlayer serverPlayer) {
-            VillagerProfession profession = villager.getVillagerData().getProfession();
-            if (profession != VillagerProfession.NONE && profession != VillagerProfession.NITWIT) {
-                ListTag marionettedJobs = serverPlayer.getPersistentData().getList("lotm_marionette_village_jobs", 8);
-                String professionId = profession.toString();
-                boolean alreadyTracked = false;
-                for (int i = 0; i < marionettedJobs.size(); i++) {
-                    if (professionId.equals(marionettedJobs.getString(i))) {
-                        alreadyTracked = true;
-                        break;
-                    }
-                }
-
-                if (!alreadyTracked) {
-                    marionettedJobs.add(StringTag.valueOf(professionId));
-                    serverPlayer.getPersistentData().put("lotm_marionette_village_jobs", marionettedJobs);
-                }
-
-                if (marionettedJobs.size() >= 5) {
-                    AdvancementsEventHandler.grantAdvancement(serverPlayer, "marionette_village");
-                }
-            }
         }
 
         return true;

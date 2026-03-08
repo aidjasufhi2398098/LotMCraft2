@@ -149,7 +149,7 @@ public class AdvancementUtil {
                 && sequence == 4
                 && "fool".equals(prevPathway)
                 && prevSequence == 5
-                && !hasAdvancement(serverPlayer, "marionette_village")) {
+                && !hasActiveBizarroRitualWindow(serverPlayer)) {
             activeAdvancements.remove(serverPlayer.getUUID());
             PacketHandler.sendToPlayer(serverPlayer, new MarionetteVillageWarningPacket(200));
             ServerScheduler.scheduleDelayed(200, () -> {
@@ -157,11 +157,19 @@ public class AdvancementUtil {
                         && isBeyonder(serverPlayer)
                         && "fool".equals(getPathway(serverPlayer))
                         && getSequence(serverPlayer) == 5
-                        && !hasAdvancement(serverPlayer, "marionette_village")) {
+                        && !hasActiveBizarroRitualWindow(serverPlayer)) {
                     setBeyonder(serverPlayer, "none", LOTMCraft.NON_BEYONDER_SEQ);
                 }
             }, serverPlayer.serverLevel());
             return;
+        }
+
+        if (entity instanceof ServerPlayer serverPlayer
+                && "fool".equals(pathway)
+                && sequence == 4
+                && "fool".equals(prevPathway)
+                && prevSequence == 5) {
+            consumeBizarroRitualWindow(serverPlayer);
         }
 
         if (entity instanceof ServerPlayer serverPlayer
@@ -260,10 +268,6 @@ public class AdvancementUtil {
         });
     }
 
-    private static boolean hasAdvancement(ServerPlayer player, String advancementPath) {
-        return hasAdvancement(player, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath(LOTMCraft.MOD_ID, advancementPath));
-    }
-
     private static boolean hasAdvancement(ServerPlayer player, net.minecraft.resources.ResourceLocation advancementId) {
         if (player.getServer() == null) return false;
 
@@ -289,6 +293,14 @@ public class AdvancementUtil {
         }
 
         return false;
+    }
+
+    private static boolean hasActiveBizarroRitualWindow(ServerPlayer player) {
+        return player.getPersistentData().getLong("lotm_bizarro_ritual_expiry") > System.currentTimeMillis();
+    }
+
+    private static void consumeBizarroRitualWindow(ServerPlayer player) {
+        player.getPersistentData().remove("lotm_bizarro_ritual_expiry");
     }
 
     private static void scheduleFog(LivingEntity entity, int duration, String pathway) {
