@@ -33,7 +33,7 @@ public class MarionetteUseAbilityGoal extends TargetGoal {
 
         MarionetteComponent component = marionette.getData(ModAttachments.MARIONETTE_COMPONENT.get());
 
-        if (!component.isFollowMode() || marionette.getTarget() == null) return false;
+        if (component.isMovementLocked() || !component.isFollowMode() || marionette.getTarget() == null) return false;
 
         if(!component.shouldAttack()) return false;
 

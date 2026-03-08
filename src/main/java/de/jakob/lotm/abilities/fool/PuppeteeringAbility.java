@@ -112,6 +112,25 @@ public class PuppeteeringAbility extends Ability {
     }
 
 
+
+    private int getPuppeteeringLinkRange(int sequence) {
+        return switch (sequence) {
+            case 5 -> 20;
+            case 4 -> 50;
+            case 3, 2, 1, 0 -> -1; // infinite
+            default -> 20;
+        };
+    }
+
+    private int getMaxMarionettesForSequence(int sequence) {
+        return switch (sequence) {
+            case 5 -> 5;
+            case 4 -> 50;
+            case 3, 2, 1, 0 -> 100;
+            default -> 5;
+        };
+    }
+
     private final DustParticleOptions particleOptions = new DustParticleOptions(new Vector3f(.4f, .4f, .4f), 1.35f);
 
     @Override
@@ -184,9 +203,14 @@ public class PuppeteeringAbility extends Ability {
                 return;
             }
 
-            if(target.distanceTo(entity) >= getManipulationDistance(sequence) * 1.75f) {
+            int controlRange = getPuppeteeringLinkRange(sequence);
+            if(controlRange > 0 && target.distanceTo(entity) > controlRange) {
                 entitiesBeingManipulated.remove(entity.getUUID());
                 stopped.set(true);
+                if (entity instanceof ServerPlayer player) {
+                    String targetName = target.getDisplayName() != null ? target.getDisplayName().getString() : target.getName().getString();
+                    player.connection.send(new ClientboundSetActionBarTextPacket(Component.literal("failed to marionette " + targetName).withColor(0xa26fc9)));
+                }
                 return;
             }
 
@@ -247,6 +271,14 @@ public class PuppeteeringAbility extends Ability {
     }
 
     private void turnIntoMarionette(LivingEntity target, Player player) {
+        int controllerSequence = BeyonderData.getSequence(player);
+        int maxMarionettes = getMaxMarionettesForSequence(controllerSequence);
+        int currentMarionettes = MarionetteUtils.countMarionettesOfController(player);
+        if (currentMarionettes >= maxMarionettes) {
+            player.sendSystemMessage(Component.literal("Reached marionette limit: " + maxMarionettes).withColor(0xa26fc9));
+            return;
+        }
+
         if(target instanceof Player) {
             Vec3 pos = target.position();
             if(BeyonderData.isBeyonder(target)) {

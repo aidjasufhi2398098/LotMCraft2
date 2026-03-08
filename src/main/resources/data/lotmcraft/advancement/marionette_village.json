@@ -1,0 +1,19 @@
+{
+  "parent": "lotmcraft:become_marionettist",
+  "display": {
+    "icon": {
+      "id": "lotmcraft:marionette_controller"
+    },
+    "title": "Marionette Village",
+    "description": "As a Marionettist, marionette 5 villagers with different jobs.",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "marionette_village": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
