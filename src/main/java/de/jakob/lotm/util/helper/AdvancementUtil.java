@@ -10,6 +10,7 @@ import de.jakob.lotm.damage.ModDamageTypes;
 import de.jakob.lotm.network.PacketHandler;
 import de.jakob.lotm.network.packets.toClient.ChangePlayerPerspectivePacket;
 import de.jakob.lotm.network.packets.toClient.MarionetteVillageWarningPacket;
+import de.jakob.lotm.potions.BeyonderCharacteristicItem;
 import de.jakob.lotm.potions.BeyonderPotion;
 import de.jakob.lotm.potions.PotionItemHandler;
 import de.jakob.lotm.util.BeyonderData;
@@ -183,6 +184,26 @@ public class AdvancementUtil {
             return;
         }
 
+        if (entity instanceof ServerPlayer serverPlayer
+                && "error".equals(pathway)
+                && sequence == 4
+                && "error".equals(prevPathway)
+                && prevSequence == 5
+                && !hasRequiredCharacteristicCount(serverPlayer, "error", 4, 5)) {
+            activeAdvancements.remove(serverPlayer.getUUID());
+            PacketHandler.sendToPlayer(serverPlayer, new MarionetteVillageWarningPacket(200));
+            ServerScheduler.scheduleDelayed(200, () -> {
+                if (!serverPlayer.isDeadOrDying()
+                        && isBeyonder(serverPlayer)
+                        && "error".equals(getPathway(serverPlayer))
+                        && getSequence(serverPlayer) == 5
+                        && !hasRequiredCharacteristicCount(serverPlayer, "error", 4, 5)) {
+                    setBeyonder(serverPlayer, "none", LOTMCraft.NON_BEYONDER_SEQ);
+                }
+            }, serverPlayer.serverLevel());
+            return;
+        }
+
         // Can't advance to same or higher sequence number (lower power)
         if(prevSequence <= sequence) {
             // Just return - no advancement happens
@@ -251,6 +272,23 @@ public class AdvancementUtil {
                 .get(advancementId);
 
         return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
+    }
+
+    private static boolean hasRequiredCharacteristicCount(ServerPlayer player, String pathway, int sequence, int requiredAmount) {
+        int count = 0;
+
+        for (var stack : player.getInventory().items) {
+            if (stack.getItem() instanceof BeyonderCharacteristicItem characteristic
+                    && pathway.equals(characteristic.getPathway())
+                    && characteristic.getSequence() == sequence) {
+                count += stack.getCount();
+                if (count >= requiredAmount) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     private static void scheduleFog(LivingEntity entity, int duration, String pathway) {
