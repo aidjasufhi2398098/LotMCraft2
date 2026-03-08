@@ -9,6 +9,8 @@ import de.jakob.lotm.attachments.SanityComponent;
 import de.jakob.lotm.damage.ModDamageTypes;
 import de.jakob.lotm.network.PacketHandler;
 import de.jakob.lotm.network.packets.toClient.ChangePlayerPerspectivePacket;
+import de.jakob.lotm.network.packets.toClient.MarionetteVillageWarningPacket;
+import de.jakob.lotm.potions.BeyonderCharacteristicItem;
 import de.jakob.lotm.potions.BeyonderPotion;
 import de.jakob.lotm.potions.PotionItemHandler;
 import de.jakob.lotm.util.BeyonderData;
@@ -142,6 +144,74 @@ public class AdvancementUtil {
 
         int prevSequence = getSequence(entity);
 
+        if (entity instanceof ServerPlayer serverPlayer
+                && "fool".equals(pathway)
+                && sequence == 4
+                && "fool".equals(prevPathway)
+                && prevSequence == 5
+                && !hasActiveBizarroRitualWindow(serverPlayer)) {
+            activeAdvancements.remove(serverPlayer.getUUID());
+            PacketHandler.sendToPlayer(serverPlayer, new MarionetteVillageWarningPacket(200));
+            ServerScheduler.scheduleDelayed(200, () -> {
+                if (!serverPlayer.isDeadOrDying()
+                        && isBeyonder(serverPlayer)
+                        && "fool".equals(getPathway(serverPlayer))
+                        && getSequence(serverPlayer) == 5
+                        && !hasActiveBizarroRitualWindow(serverPlayer)) {
+                    setBeyonder(serverPlayer, "none", LOTMCraft.NON_BEYONDER_SEQ);
+                }
+            }, serverPlayer.serverLevel());
+            return;
+        }
+
+        if (entity instanceof ServerPlayer serverPlayer
+                && "fool".equals(pathway)
+                && sequence == 4
+                && "fool".equals(prevPathway)
+                && prevSequence == 5) {
+            consumeBizarroRitualWindow(serverPlayer);
+        }
+
+        if (entity instanceof ServerPlayer serverPlayer
+                && "door".equals(pathway)
+                && sequence == 4
+                && "door".equals(prevPathway)
+                && prevSequence == 5
+                && !hasAdvancement(serverPlayer, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("stellaris", "moon_land"))) {
+            activeAdvancements.remove(serverPlayer.getUUID());
+            PacketHandler.sendToPlayer(serverPlayer, new MarionetteVillageWarningPacket(200));
+            ServerScheduler.scheduleDelayed(200, () -> {
+                if (!serverPlayer.isDeadOrDying()
+                        && isBeyonder(serverPlayer)
+                        && "door".equals(getPathway(serverPlayer))
+                        && getSequence(serverPlayer) == 5
+                        && !hasAdvancement(serverPlayer, net.minecraft.resources.ResourceLocation.fromNamespaceAndPath("stellaris", "moon_land"))) {
+                    setBeyonder(serverPlayer, "none", LOTMCraft.NON_BEYONDER_SEQ);
+                }
+            }, serverPlayer.serverLevel());
+            return;
+        }
+
+        if (entity instanceof ServerPlayer serverPlayer
+                && "error".equals(pathway)
+                && sequence == 4
+                && "error".equals(prevPathway)
+                && prevSequence == 5
+                && !hasRequiredCharacteristicCount(serverPlayer, "error", 4, 5)) {
+            activeAdvancements.remove(serverPlayer.getUUID());
+            PacketHandler.sendToPlayer(serverPlayer, new MarionetteVillageWarningPacket(200));
+            ServerScheduler.scheduleDelayed(200, () -> {
+                if (!serverPlayer.isDeadOrDying()
+                        && isBeyonder(serverPlayer)
+                        && "error".equals(getPathway(serverPlayer))
+                        && getSequence(serverPlayer) == 5
+                        && !hasRequiredCharacteristicCount(serverPlayer, "error", 4, 5)) {
+                    setBeyonder(serverPlayer, "none", LOTMCraft.NON_BEYONDER_SEQ);
+                }
+            }, serverPlayer.serverLevel());
+            return;
+        }
+
         // Can't advance to same or higher sequence number (lower power)
         if(prevSequence <= sequence) {
             // Just return - no advancement happens
@@ -196,6 +266,41 @@ public class AdvancementUtil {
                 }
             }
         });
+    }
+
+    private static boolean hasAdvancement(ServerPlayer player, net.minecraft.resources.ResourceLocation advancementId) {
+        if (player.getServer() == null) return false;
+
+        var advancement = player.getServer()
+                .getAdvancements()
+                .get(advancementId);
+
+        return advancement != null && player.getAdvancements().getOrStartProgress(advancement).isDone();
+    }
+
+    private static boolean hasRequiredCharacteristicCount(ServerPlayer player, String pathway, int sequence, int requiredAmount) {
+        int count = 0;
+
+        for (var stack : player.getInventory().items) {
+            if (stack.getItem() instanceof BeyonderCharacteristicItem characteristic
+                    && pathway.equals(characteristic.getPathway())
+                    && characteristic.getSequence() == sequence) {
+                count += stack.getCount();
+                if (count >= requiredAmount) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private static boolean hasActiveBizarroRitualWindow(ServerPlayer player) {
+        return player.getPersistentData().getLong("lotm_bizarro_ritual_expiry") > System.currentTimeMillis();
+    }
+
+    private static void consumeBizarroRitualWindow(ServerPlayer player) {
+        player.getPersistentData().remove("lotm_bizarro_ritual_expiry");
     }
 
     private static void scheduleFog(LivingEntity entity, int duration, String pathway) {

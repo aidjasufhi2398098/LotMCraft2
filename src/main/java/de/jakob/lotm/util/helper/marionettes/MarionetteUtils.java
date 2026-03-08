@@ -9,7 +9,6 @@ import de.jakob.lotm.util.BeyonderData;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.*;
@@ -70,6 +69,7 @@ public class MarionetteUtils {
         if (!controller.getInventory().add(controllerItem)) {
             controller.drop(controllerItem, false);
         }
+
         return true;
     }
     
