@@ -1245,5 +1245,6 @@
   "item.lotmcraft.abyss_demonic_fish_blood_energized": "Energized Blood of an Abyss Demonic Fish",
   "item.lotmcraft.agate_peacock_egg_energized": "Energized Egg of an Agate Peacock",
   "item.lotmcraft.succubus_eyes_energized": "Energized Eyes of a Succubus",
-  "item.lotmcraft.shadow_lizard_scales_energized": "Energized Scales of a Shadow Lizard"
+  "item.lotmcraft.shadow_lizard_scales_energized": "Energized Scales of a Shadow Lizard",
+  "ability.lotmcraft.host_controlling.control_host": "Control Host"
 }

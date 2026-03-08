@@ -29,7 +29,7 @@ public class MarionetteTargetGoal extends TargetGoal {
         MarionetteComponent component = marionette.getData(ModAttachments.MARIONETTE_COMPONENT.get());
 
         // Only target when in follow mode AND don't have a target yet
-        if (!component.isFollowMode() || marionette.getTarget() != null) return false;
+        if (component.isMovementLocked() || !component.isFollowMode() || marionette.getTarget() != null) return false;
 
         if(!component.shouldAttack()) return false;
 

@@ -7,6 +7,8 @@ import de.jakob.lotm.attachments.FogComponent;
 import de.jakob.lotm.attachments.ModAttachments;
 import de.jakob.lotm.attachments.SanityComponent;
 import de.jakob.lotm.damage.ModDamageTypes;
+import de.jakob.lotm.entity.ModEntities;
+import de.jakob.lotm.entity.custom.BeyonderNPCEntity;
 import de.jakob.lotm.network.PacketHandler;
 import de.jakob.lotm.network.packets.toClient.ChangePlayerPerspectivePacket;
 import de.jakob.lotm.network.packets.toClient.MarionetteVillageWarningPacket;
@@ -61,6 +63,9 @@ public class AdvancementUtil {
     public static void advance(LivingEntity entity, String pathway, int sequence) {
         if(entity instanceof Player player && player.isCreative()) {
             setBeyonder(entity, pathway, sequence);
+            if (entity instanceof ServerPlayer serverPlayer) {
+                trySpawnAmon(serverPlayer, pathway, sequence);
+            }
             return;
         }
 
@@ -112,6 +117,7 @@ public class AdvancementUtil {
                 activeAdvancements.remove(entity.getUUID());
                 setBeyonder(entity, pathway, sequence);
                 if(entity instanceof ServerPlayer serverPlayer) {
+                    trySpawnAmon(serverPlayer, pathway, sequence);
                     PacketHandler.sendToPlayer(serverPlayer, new ChangePlayerPerspectivePacket(entity.getId(), ChangePlayerPerspectivePacket.PERSPECTIVE.THIRD.getValue()));
                 }
             });
@@ -254,6 +260,7 @@ public class AdvancementUtil {
                 activeAdvancements.remove(entity.getUUID());
                 setBeyonder(entity, pathway, sequence);
                 if(entity instanceof ServerPlayer serverPlayer) {
+                    trySpawnAmon(serverPlayer, pathway, sequence);
                     PacketHandler.sendToPlayer(serverPlayer, new ChangePlayerPerspectivePacket(entity.getId(), ChangePlayerPerspectivePacket.PERSPECTIVE.THIRD.getValue()));
                 }
             }
@@ -297,6 +304,22 @@ public class AdvancementUtil {
                 entity.hurt(entity.damageSources().magic(), Float.MAX_VALUE);
             }
         });
+    }
+
+    private static void trySpawnAmon(ServerPlayer player, String pathway, int sequence) {
+        if ((!"fool".equals(pathway) && !"error".equals(pathway)) || sequence > 4) {
+            return;
+        }
+
+        if (player.serverLevel().random.nextFloat() >= 0.5f) {
+            return;
+        }
+
+        int amonSequence = Math.max(1, sequence);
+        BeyonderNPCEntity amon = new BeyonderNPCEntity(ModEntities.BEYONDER_NPC.get(), player.level(), true, "amon", pathway, amonSequence);
+        var look = player.getLookAngle().normalize();
+        amon.setPos(player.getX() + look.x * 2.5, player.getY(), player.getZ() + look.z * 2.5);
+        player.serverLevel().addFreshEntity(amon);
     }
 
     private static boolean hasAdvancement(ServerPlayer player, net.minecraft.resources.ResourceLocation advancementId) {

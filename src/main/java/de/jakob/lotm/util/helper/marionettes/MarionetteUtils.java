@@ -40,8 +40,10 @@ public class MarionetteUtils {
         // Set marionette data
         component.setMarionette(true);
         component.setControllerUUID(controller.getStringUUID());
-        component.setFollowMode(true);
-        component.setShouldAttack(true);
+        component.setFollowMode(false);
+        component.setShouldAttack(false);
+        component.setMovementLocked(true);
+        component.stopForcedWalk();
 
         // Clear existing goals and add marionette goals
         if (entity instanceof Mob mob) {
@@ -73,6 +75,26 @@ public class MarionetteUtils {
         return true;
     }
     
+
+    public static int countMarionettesOfController(LivingEntity controller) {
+        if (controller.getServer() == null) {
+            return 0;
+        }
+
+        int count = 0;
+        for (var level : controller.getServer().getAllLevels()) {
+            count += (int) java.util.stream.StreamSupport.stream(level.getAllEntities().spliterator(), false)
+                    .filter(e -> e instanceof LivingEntity living)
+                    .map(e -> (LivingEntity) e)
+                    .filter(living -> {
+                        MarionetteComponent component = living.getData(ModAttachments.MARIONETTE_COMPONENT.get());
+                        return component.isMarionette() && controller.getStringUUID().equals(component.getControllerUUID());
+                    })
+                    .count();
+        }
+        return count;
+    }
+
     public static ItemStack createMarionetteController(LivingEntity marionette) {
         ItemStack controller = new ItemStack(ModItems.MARIONETTE_CONTROLLER.get());
         CompoundTag tag = new CompoundTag();
