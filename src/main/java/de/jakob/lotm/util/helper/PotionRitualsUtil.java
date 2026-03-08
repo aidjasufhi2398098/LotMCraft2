@@ -114,10 +114,32 @@ public final class PotionRitualsUtil {
 
     public static boolean setRitual(ServerPlayer player, String pathway, int sequence, String ritual, boolean value) {
         String normalized = ritual.toLowerCase(Locale.ROOT);
+        Set<String> supportedRituals = getSupportedRituals(pathway, sequence);
+        if (supportedRituals.isEmpty()) {
+            return false;
+        }
+
+        if ("all".equals(normalized)) {
+            for (String supportedRitual : supportedRituals) {
+                if (!"all".equals(supportedRitual)) {
+                    applySingleRitual(player, pathway, sequence, supportedRitual, value);
+                }
+            }
+            return true;
+        }
+
+        if (!supportedRituals.contains(normalized)) {
+            return false;
+        }
+
+        return applySingleRitual(player, pathway, sequence, normalized, value);
+    }
+
+    private static boolean applySingleRitual(ServerPlayer player, String pathway, int sequence, String normalizedRitual, boolean value) {
         CompoundTag ritualTag = getRitualTag(player);
 
         if ("error".equals(pathway) && sequence == 3) {
-            return switch (normalized) {
+            return switch (normalizedRitual) {
                 case "raid_plains" -> setBool(ritualTag, ERROR3_RAID_PLAINS, value);
                 case "raid_taiga" -> setBool(ritualTag, ERROR3_RAID_TAIGA, value);
                 case "raid_savanna" -> setBool(ritualTag, ERROR3_RAID_SAVANNA, value);
@@ -126,7 +148,7 @@ public final class PotionRitualsUtil {
         }
 
         if ("door".equals(pathway) && sequence == 3) {
-            return switch (normalized) {
+            return switch (normalizedRitual) {
                 case "visit_overworld" -> setBool(ritualTag, DOOR3_VISIT_OVERWORLD, value);
                 case "visit_nether" -> setBool(ritualTag, DOOR3_VISIT_NETHER, value);
                 case "visit_end" -> setBool(ritualTag, DOOR3_VISIT_END, value);
@@ -139,7 +161,7 @@ public final class PotionRitualsUtil {
         }
 
         if ("fool".equals(pathway) && sequence == 3) {
-            return switch (normalized) {
+            return switch (normalizedRitual) {
                 case "end_5_days" -> {
                     if (value) {
                         ritualTag.putLong(FOOL3_END_STAY_TICKS, SCHOLAR_REQUIRED_TICKS_IN_END);
@@ -163,13 +185,13 @@ public final class PotionRitualsUtil {
 
     public static Set<String> getSupportedRituals(String pathway, int sequence) {
         if ("error".equals(pathway) && sequence == 3) {
-            return Set.of("raid_plains", "raid_taiga", "raid_savanna");
+            return Set.of("all", "raid_plains", "raid_taiga", "raid_savanna");
         }
         if ("door".equals(pathway) && sequence == 3) {
-            return Set.of("visit_overworld", "visit_nether", "visit_end", "has_elytra", "has_wither_skull", "has_diamond_block", "drink_in_deep_dark");
+            return Set.of("all", "visit_overworld", "visit_nether", "visit_end", "has_elytra", "has_wither_skull", "has_diamond_block", "drink_in_deep_dark");
         }
         if ("fool".equals(pathway) && sequence == 3) {
-            return Set.of("end_5_days", "scholar_window_open");
+            return Set.of("all", "end_5_days", "scholar_window_open");
         }
         return new HashSet<>();
     }
