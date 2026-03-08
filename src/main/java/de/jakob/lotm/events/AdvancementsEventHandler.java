@@ -1,6 +1,7 @@
 package de.jakob.lotm.events;
 
 import de.jakob.lotm.LOTMCraft;
+import de.jakob.lotm.attachments.SefirotData;
 import de.jakob.lotm.artifacts.SealedArtifactItem;
 import de.jakob.lotm.entity.custom.BeyonderNPCEntity;
 import de.jakob.lotm.potions.BeyonderCharacteristicItem;
@@ -70,6 +71,24 @@ public class AdvancementsEventHandler {
             player.getPersistentData().putInt("lotm_beyonder_kills", kills);
             if (kills >= 10) {
                 grantAdvancement(player, "kill_ten_beyonders");
+            }
+        }
+
+
+        if (entity instanceof ServerPlayer victimPlayer && killer instanceof ServerPlayer killerPlayer) {
+            final String sefirahCastle = "sefirah_castle";
+            String killerPathway = BeyonderData.getPathway(killerPlayer);
+            int killerSequence = BeyonderData.getSequence(killerPlayer);
+            boolean eligibleKiller = killerSequence == 1 && ("fool".equals(killerPathway) || "door".equals(killerPathway) || "error".equals(killerPathway));
+
+            if (eligibleKiller) {
+                SefirotData sefirotData = SefirotData.get(killerPlayer.server);
+                java.util.UUID currentOwner = sefirotData.getOwnerOfSefirot(sefirahCastle);
+                if (currentOwner != null && currentOwner.equals(victimPlayer.getUUID())) {
+                    if (sefirotData.transferSefirot(victimPlayer.getUUID(), killerPlayer.getUUID(), sefirahCastle)) {
+                        killerPlayer.sendSystemMessage(net.minecraft.network.chat.Component.literal("You have inherited Sefirah Castle.").withColor(0xB155FF));
+                    }
+                }
             }
         }
 
