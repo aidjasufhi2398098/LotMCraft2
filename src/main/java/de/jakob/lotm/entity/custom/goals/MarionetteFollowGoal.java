@@ -26,7 +26,7 @@ public class MarionetteFollowGoal extends Goal {
         MarionetteComponent component = marionette.getData(ModAttachments.MARIONETTE_COMPONENT.get());
 
         // Only follow when in follow mode AND not currently fighting
-        return component.isFollowMode() && marionette.getTarget() == null;
+        return !component.isMovementLocked() && component.isFollowMode() && marionette.getTarget() == null;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MarionetteFollowGoal extends Goal {
         MarionetteComponent component = marionette.getData(ModAttachments.MARIONETTE_COMPONENT.get());
 
         // Stop following if no longer in follow mode OR if we now have a target
-        return component.isFollowMode() && marionette.getTarget() == null;
+        return !component.isMovementLocked() && component.isFollowMode() && marionette.getTarget() == null;
     }
 
     @Override

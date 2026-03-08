@@ -1,10 +1,14 @@
 package de.jakob.lotm.abilities.error;
 
 import de.jakob.lotm.abilities.core.SelectableAbility;
+import de.jakob.lotm.attachments.ModAttachments;
+import de.jakob.lotm.util.ControllingUtil;
 import de.jakob.lotm.util.helper.AbilityUtil;
 import de.jakob.lotm.util.helper.DamageLookup;
+import de.jakob.lotm.util.helper.marionettes.MarionetteComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 
@@ -28,7 +32,7 @@ public class HostControllingAbility extends SelectableAbility {
 
     @Override
     protected String[] getAbilityNames() {
-        return new String[]{"ability.lotmcraft.host_controlling.drain_health", "ability.lotmcraft.host_controlling.kill"};
+        return new String[]{"ability.lotmcraft.host_controlling.drain_health", "ability.lotmcraft.host_controlling.kill", "ability.lotmcraft.host_controlling.control_host"};
     }
 
     @Override
@@ -53,6 +57,20 @@ public class HostControllingAbility extends SelectableAbility {
             case 1 -> {
                 host.setHealth(0.5f);
                 host.hurt(entity.damageSources().magic(), 1000);
+            }
+            case 2 -> {
+                if (!(entity instanceof ServerPlayer player)) {
+                    return;
+                }
+
+                MarionetteComponent component = host.getData(ModAttachments.MARIONETTE_COMPONENT.get());
+                if (!component.isMarionette()) {
+                    AbilityUtil.sendActionBar(entity, Component.literal("Host is not a marionette").withColor(0xa26fc9));
+                    return;
+                }
+
+                // Parasite can jump into and control the marionette like puppeteering control.
+                ControllingUtil.possess(player, host);
             }
         }
     }

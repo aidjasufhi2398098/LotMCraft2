@@ -94,6 +94,16 @@ public class BeyonderDataTickHandler {
             if(player.tickCount % 20 == 0) {
                 BeyonderData.digest(player, 1 / (20 * 60 * 60f), false);
             }
+
+            // Door pathway sanity drain during night (stops by sequence 4 and above power)
+            if (player.tickCount % 40 == 0 && "door".equals(BeyonderData.getPathway(player))) {
+                int sequence = BeyonderData.getSequence(player);
+                if (sequence > 4 && player.level().isNight()) {
+                    float factor = (sequence - 4) / 5.0f; // seq9 strongest drain -> seq5 weakest
+                    float drain = 0.0025f * factor;
+                    player.getData(ModAttachments.SANITY_COMPONENT).increaseSanityAndSync(-drain, player);
+                }
+            }
         }
 
         // Tick special items

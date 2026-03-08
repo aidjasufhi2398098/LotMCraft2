@@ -268,6 +268,10 @@ public class ClientHandler {
         }
     }
 
+    public static void handleMarionetteVillageWarning(MarionetteVillageWarningPacket packet) {
+        MarionetteVillageWarningRenderer.setWarningTicks(packet.ticks());
+    }
+
     public static void handleSanityPacket(SyncSanityPacket packet) {
         ClientLevel level = Minecraft.getInstance().level;
         if (level == null) return;
