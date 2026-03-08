@@ -6,6 +6,7 @@ import de.jakob.lotm.entity.custom.BeyonderNPCEntity;
 import de.jakob.lotm.potions.BeyonderCharacteristicItem;
 import de.jakob.lotm.potions.PotionRecipeItem;
 import de.jakob.lotm.util.BeyonderData;
+import de.jakob.lotm.util.scheduling.ServerScheduler;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.core.HolderSet;
@@ -15,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.levelgen.structure.StructureStart;
@@ -72,6 +74,28 @@ public class AdvancementsEventHandler {
         if (entity instanceof ServerPlayer player && BeyonderData.isBeyonder(player)) {
             grantAdvancement(player, "die_as_beyonder");
         }
+
+        if (entity instanceof LivingEntity victim
+                && killer instanceof ServerPlayer player
+                && BeyonderData.isBeyonder(player)
+                && BeyonderData.isBeyonder(victim)
+                && BeyonderData.getSequence(victim) < BeyonderData.getSequence(player)) {
+            long expiry = System.currentTimeMillis() + 30_000L;
+            player.getPersistentData().putLong("lotm_bizarro_ritual_expiry", expiry);
+
+            ServerScheduler.scheduleForDuration(0, 20, 600, () -> {
+                long remaining = player.getPersistentData().getLong("lotm_bizarro_ritual_expiry") - System.currentTimeMillis();
+                if (remaining <= 0) {
+                    return;
+                }
+
+                long remainingSeconds = (long)Math.ceil(remaining / 1000.0);
+                player.displayClientMessage(net.minecraft.network.chat.Component.literal(
+                        "Bizarro ritual window: " + remainingSeconds + "s"
+                ).withColor(0x55CCFF), true);
+            }, player.serverLevel());
+        }
+
     }
 
     @SubscribeEvent

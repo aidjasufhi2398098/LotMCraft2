@@ -47,7 +47,7 @@ public class VillagerTradesEventHandler {
                 int sequence = getSequenceForItem(entry.getKey());
 
                 // limit the sequence of items
-                if(sequence >= 4) {
+                if(sequence >= 4 && !isDisallowedLowSequencePotion(entry.getKey())) {
                     trades.get(level).add((entity, randomSource) -> {
                         Random random = new Random();
                         int diamondAmount = Math.max(1, random.nextInt(entry.getValue() - 4, entry.getValue() + 5));
@@ -94,7 +94,7 @@ public class VillagerTradesEventHandler {
             int level = getLevelForItem(entry.getKey());
             int sequence = getSequenceForItem(entry.getKey());
 
-            if(sequence >= 5) {
+            if(sequence >= 5 && !isDisallowedLowSequencePotion(entry.getKey())) {
                 trades.get(level).add((entity, randomSource) -> {
                     Random random = new Random();
                     int diamondAmount = Math.max(1, random.nextInt(entry.getValue() - 4, entry.getValue() + 5));
@@ -162,6 +162,11 @@ public class VillagerTradesEventHandler {
         return level;
     }
 
+
+    private static boolean isDisallowedLowSequencePotion(Item item) {
+        return item instanceof BeyonderPotion potion && potion.getSequence() <= 3;
+    }
+
     @SubscribeEvent
     public static void onVillagerInteract(PlayerInteractEvent.EntityInteract event) {
         if (!(event.getTarget() instanceof Villager villager)) return;
@@ -181,7 +186,7 @@ public class VillagerTradesEventHandler {
                     }
 
                     if(item instanceof BeyonderPotion potion){
-                        return !BeyonderData.beyonderMap.check(potion.getPathway(), potion.getSequence()) || potion.getSequence() < 4;
+                        return !BeyonderData.beyonderMap.check(potion.getPathway(), potion.getSequence()) || potion.getSequence() <= 3;
                     }
 
                     if(item instanceof BeyonderCharacteristicItem cha){
