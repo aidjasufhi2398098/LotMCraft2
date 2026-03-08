@@ -6,6 +6,7 @@ import de.jakob.lotm.entity.custom.BeyonderNPCEntity;
 import de.jakob.lotm.potions.BeyonderCharacteristicItem;
 import de.jakob.lotm.potions.PotionRecipeItem;
 import de.jakob.lotm.util.BeyonderData;
+import de.jakob.lotm.util.helper.PotionRitualsUtil;
 import de.jakob.lotm.util.scheduling.ServerScheduler;
 import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.advancements.AdvancementProgress;
@@ -31,6 +32,8 @@ public class AdvancementsEventHandler {
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Post event) {
         if (!(event.getEntity() instanceof ServerPlayer player)) return;
+
+        PotionRitualsUtil.tickPlayerRituals(player);
 
         if (BeyonderData.isBeyonder(player)) {
             grantAdvancement(player, "become_beyonder");
