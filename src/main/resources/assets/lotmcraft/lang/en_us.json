@@ -10,7 +10,6 @@
   "item.lotmcraft.paper_figurine_substitute": "Paper Figurine Substitute",
   "item.lotmcraft.mirror": "Mirror",
   "item.lotmcraft.spacer": "",
-
   "creativetab.lotmcraft.lotm_tab": "Lord of the Mysteries",
   "creativetab.lotmcraft.abilities_tab": "Beyonder Abilities",
   "creativetab.lotmcraft.passive_abilities_tab": "Passive Beyonder Abilities",
@@ -18,7 +17,6 @@
   "creativetab.lotmcraft.beyonder_ingredients_tab": "Potion Ingredients",
   "creativetab.lotmcraft.beyonder_recipes_tab": "Potion Recipes",
   "creativetab.lotmcraft.beyonder_characteristic_tab": "Beyonder Characteristics",
-
   "_comment000": "Key Binds-------------------------------------------------------------------------------------",
   "key.beyonders.pathway_infos": "Open Introspect",
   "key.categories.beyonders": "Beyonders",
@@ -37,15 +35,10 @@
   "key.beyonders.use_ability_bar_ability_5": "Use Ability Bar Ability 5",
   "key.beyonders.use_ability_bar_ability_6": "Use Ability Bar Ability 6",
   "key.beyonders.return_to_main_body": "Return to Main Body",
-
-
-
   "_comment001": "Abilities------------------------------------------------------------------------------------",
-
   "lotmcraft.mythical_creature_tyrant_ability": "Mythical Creature Form",
   "lotmcraft.mythical_creature_door_ability": "Mythical Creature Form",
   "lotmcraft.mythical_creature_form_ability": "Mythical Creature Form",
-
   "lotmcraft.ally_ability": "Ally Designator",
   "lotmcraft.ally_ability.description": "Designate an entity as your ally",
   "lotmcraft.cogitation_ability": "Cogitation",
@@ -62,7 +55,6 @@
   "ability.lotmcraft.angel_authority.spirit_world_passage": "Spirit World Passage",
   "ability.lotmcraft.angel_authority.artifact_shattering": "Artifact Shattering",
   "ability.lotmcraft.angel_authority.flight": "Flight",
-
   "lotmcraft.illuminate_ability": "Illuminate",
   "lotmcraft.illuminate_ability.description": "Create a small light",
   "lotmcraft.holy_song_ability": "Holy Song",
@@ -82,7 +74,7 @@
   "lotmcraft.notary_debuff_ability": "God says its not effective",
   "lotmcraft.notary_debuff_ability.description": "Weaken your enemies by calling upon your god",
   "lotmcraft.light_of_holiness_ability": "Light of Holiness",
-  "lotmcraft.light_of_holiness_ability.description":"Summon blazing a hot pillar of light from the sky",
+  "lotmcraft.light_of_holiness_ability.description": "Summon blazing a hot pillar of light from the sky",
   "lotmcraft.purification_halo_ability": "Purification Halo",
   "lotmcraft.purification_halo_ability.description": "Produce a halo, that purifies everything",
   "lotmcraft.unshadowed_spear_ability": "Unshadowed Spear",
@@ -105,7 +97,6 @@
   "lotmcraft.pure_white_light_ability.description": "Under the pure White Light, everything will be disintegrated",
   "lotmcraft.divine_kingdom_manifestation_ability": "Divine Kingdom Manifestation",
   "lotmcraft.divine_kingdom_manifestation_ability.description": "Manifest an embryonic Divine Kingdom to immediately scorch all non beyonders and weaken other Beyonders to the point of helplessness",
-
   "lotmcraft.trap_ability": "Trap",
   "lotmcraft.trap_ability.description": "Set an explosive Trap",
   "lotmcraft.provoking_ability": "Provoking",
@@ -161,7 +152,6 @@
   "ability.lotmcraft.flame_authority.vortex": "Flaming Vortex",
   "lotmcraft.puppet_soldier_creation_ability": "Puppet Soldier Creation",
   "lotmcraft.puppet_soldier_creation_ability.description": "Create 5 Puppet Soldiers, each equal to Sequence 4 Red Priest Demigod and command them",
-
   "lotmcraft.raging_blows_ability": "Raging Blows",
   "lotmcraft.raging_blows_ability.description": "A series of powerful blows that damage your opp",
   "lotmcraft.water_manipulation_ability": "Water Manipulation",
@@ -218,7 +208,6 @@
   "lotmcraft.electromagnetic_tornado_ability.description": "Summon a electromagnetic tornado",
   "lotmcraft.roar_of_the_thunder_god_ability": "Roar of the Thunder God",
   "lotmcraft.roar_of_the_thunder_god_ability.description": "The cry of a god that destroy your enemies",
-
   "lotmcraft.toxic_smoke_ability": "Toxic Smoke",
   "lotmcraft.toxic_smoke_ability.description": "Release toxic smoke around you",
   "lotmcraft.poisonous_flame_ability": "Poisonous Flame",
@@ -240,7 +229,6 @@
   "lotmcraft.defiling_seed_ability": "Defiling Seed",
   "lotmcraft.defiling_seed_ability.description": "Bury your seed into target to corrupt them",
   "ability.lotmcraft.defiling_seed.no_target": "No Target found",
-
   "lotmcraft.flame_controlling_ability": "Flame Controlling",
   "lotmcraft.flame_controlling_ability.description": "Shoot out flames",
   "lotmcraft.air_bullet_ability": "Air Bullet",
@@ -329,8 +317,6 @@
   "ability.lotmcraft.grafting.failed": "The Grafting failed",
   "ability.lotmcraft.grafting.resisted": "The target's Sequence is too high to be Grafted",
   "ability.lotmcraft.grafting.no_target": "No Target found",
-
-
   "lotmcraft.midnight_poem_ability": "Midnight Poem",
   "lotmcraft.midnight_poem_ability.description": "Recite a poem related to night to either put them to sleep or attack",
   "ability.lotmcraft.midnight_poem.lullaby": "Lullaby",
@@ -360,7 +346,6 @@
   "ability.lotmcraft.concealment.surroundings": "Conceal Surroundings",
   "lotmcraft.sword_of_darkness_ability": "Sword of Darkness",
   "lotmcraft.sword_of_darkness_ability.description": "Create a giant slash that cuts everything in its way",
-
   "lotmcraft.mighty_blow_ability": "Mighty Blow",
   "lotmcraft.mighty_blow_ability.description": "Strike your target with one single powerful blow",
   "lotmcraft.instigation_ability": "Instigation",
@@ -416,7 +401,6 @@
   "lotmcraft.structural_collapse_ability.description": "Collapse any building, cave, mountain, ocean and any structure, burying everything",
   "lotmcraft.apocalypse_ability": "Apocalypse",
   "lotmcraft.apocalypse_ability.description": "Bring an End in area, dooming everything around you and transforming blocks into obsidian",
-
   "lotmcraft.plant_nurturing_ability": "Plant Nurturing",
   "lotmcraft.plant_nurturing_ability.description": "Plants will grow rapidly",
   "lotmcraft.healing_ability": "Healing",
@@ -474,7 +458,6 @@
   "ability.lotmcraft.wrath_of_nature.fire": "Wildfire",
   "ability.lotmcraft.wrath_of_nature.moon": "Moon",
   "ability.lotmcraft.wrath_of_nature.moon_on_cooldown": "The Moon is already shining",
-
   "lotmcraft.door_opening_ability": "Door Opening",
   "lotmcraft.door_opening_ability.description": "Use on solid walls to pass through them",
   "lotmcraft.spells_ability": "Spells",
@@ -549,7 +532,6 @@
   "lotmcraft.space_time_storm_ability.description": "Unleash power, that is enough to shatter Space and Time, turning everything in range into Void, that is deadly to everyone without Void Immunity",
   "lotmcraft.player_teleportation_ability": "Player Teleportation",
   "lotmcraft.player_teleportation_ability.description": "Teleport to a Selected Player",
-
   "lotmcraft.spectating_ability": "Spectating",
   "lotmcraft.spectating_ability.description": "Spectate the minds and thoughts of the people around you",
   "lotmcraft.telepathy_ability": "Telepathy",
@@ -589,8 +571,6 @@
   "lotmcraft.mind_invasion.description": "Invade your opponents Mind Island. The more you destroy the more sanity they will lose",
   "lotmcraft.identity_avatar_ability": "Identity Avatar",
   "lotmcraft.identity_avatar_ability.description": "Split of Virtual Persona and weave it into an Avatar",
-
-
   "lotmcraft.psyche_storm_ability": "Psyche Storm",
   "lotmcraft.psyche_storm_ability.description": " Create an area of effect that cause your enemies to loose control",
   "lotmcraft.calamity_attraction_ability": "Calamity Attraction",
@@ -621,7 +601,6 @@
   "ability.lotmcraft.cycle_of_fate.create_cycle": "Create Cycle of Fate",
   "ability.lotmcraft.cycle_of_fate.trigger_cycle": "Trigger Cycle of Fate",
   "ability.lotmcraft.cycle_of_fate.no_cycle": "No active Cycle of Fate found",
-
   "lotmcraft.theft_ability": "Theft",
   "lotmcraft.theft_ability.description": "If used on Player, it will attempt to steal any item from his inventory. If used on Mob, it will give random drop related to them, like meat from animals or arrows from skeleton",
   "lotmcraft.mental_disruption_ability": "Mental Disruption",
@@ -677,12 +656,8 @@
   "ability.lotmcraft.conceptual_theft.day_night": "Steal Day/Night",
   "ability.lotmcraft.conceptual_theft.area": "Steal Area",
   "lotmcraft.time_manipulation_ability": "Time Manipulation",
-
-
   "lotm.ability.cogitation.tick": "Cogitating",
-
   "item.lotmcraft.ability_not_implemented": "Abilities for this Sequence are not yet implemented",
-
   "_comment002": "Passive Abilities-----------------------------------------------------------------------------",
   "item.lotmcraft.physical_enhancements_red_priest_ability": "Physical Enhancements",
   "item.lotmcraft.physical_enhancements_abyss_ability": "Physical Enhancements",
@@ -701,19 +676,14 @@
   "item.lotmcraft.physical_enhancements_mother_ability": "Physical Enhancements",
   "item.lotmcraft.physical_enhancements_visionary_ability": "Physical Enhancements",
   "item.lotmcraft.physical_enhancements_wheel_of_fortune_ability": "Physical Enhancements",
-
   "item.lotmcraft.flaming_hit_ability": "Flaming Hit",
   "item.lotmcraft.fire_resistance_ability": "Fire Resistance",
-
   "item.lotmcraft.fire_resistance_abyss_ability": "Fire Resistance",
-
   "item.lotmcraft.passive_theft_ability": "Passive Theft",
   "item.lotmcraft.passive_theft_ability.description": "You have a chance to steal items from mobs or players you hit",
-
   "item.lotmcraft.spirit_world_awareness_ability": "Spirit World Awareness",
   "ability.lotmcraft.spirit_world_awareness.overworld_coordinates": "Coordinates in Overworld",
   "item.lotmcraft.void_immunity_ability": "Void Immunity",
-
   "item.lotmcraft.passive_luck_ability": "Passive Luck",
   "ability.lotmcraft.passive_luck.dodge": "Dodged Attack through Luck",
   "ability.lotmcraft.passive_luck.crit": "Critical Hit through Luck",
@@ -724,23 +694,18 @@
   "item.lotmcraft.passive_calamity_attraction_ability": "Calamity Attraction",
   "item.lotmcraft.passive_luck_accumulation_ability": "Passive Luck Accumulation",
   "item.lotmcraft.passive_luck_accumulation_ability.description": "Passively accumulate luck",
-
   "item.lotmcraft.paper_dagger_ability": "Paper Daggers",
   "item.lotmcraft.paper_dagger_ability.description": "Right click with paper to throw it as a dagger",
   "item.lotmcraft.puppeteering_enhancements_ability": "Puppeteering Enhancements",
   "item.lotmcraft.puppeteering_enhancements_ability.description": "Your range has increased massively and the time it takes was reduced greatly. Your marionettes can now use your abilities. The number of marionettes was increased",
-
   "item.lotmcraft.nocturnality_ability": "Nocturnality",
-
   "item.lotmcraft.feather_fall_ability": "Feather Fall",
   "item.lotmcraft.blood_loss_ability": "Blood Loss",
   "item.lotmcraft.blood_loss_ability.description": "Targets you hit have a chance to loose their blood when attacked. You can use the blood for curses or rituals.",
   "item.lotmcraft.mirror_revival_ability": "Mirror Revival",
   "item.lotmcraft.mirror_revival_ability.description": "If there is glass near you, you will resurrect after death",
-
   "item.lotmcraft.riptide_ability": "Riptide",
   "item.lotmcraft.riptide_ability.description": "Your Beyonder Abilities get stronger while you are in water",
-
   "_comment003": "Effects-----------------------------------------------------------------------------",
   "effect.lotmcraft.asleep": "Asleep",
   "effect.lotmcraft.loosing_control": "Loosing Control",
@@ -751,13 +716,11 @@
   "effect.lotmcraft.conquered": "Conquered",
   "effect.lotmcraft.mutation": "Mutated",
   "effect.lotmcraft.concealment": "Concealment",
-
   "_comment004": "Sounds-----------------------------------------------------------------------------",
   "sounds.lotmcraft.midnight_poem": "Midnight Poem",
   "sounds.lotmcraft.melody_of_death": "Melody of Death",
   "sounds.lotmcraft.dazing_song": "Dazing Song",
   "sounds.lotmcraft.song_of_courage": "Song of Courage",
-
   "_comment005": "Entities-----------------------------------------------------------------------------",
   "entity.lotmcraft.fire_raven": "Fire Raven",
   "entity.lotmcraft.damage_tracker": "Damage Tracker",
@@ -772,21 +735,15 @@
   "entity.minecraft.villager.lotmcraft.beyonder_merchant": "Beyonder Merchant",
   "entity.minecraft.villager.lotmcraft.evernight_clergyman": "Evernight Clergyman",
   "entity.minecraft.villager.lotmcraft.eternal_blazing_sun_clergyman": "Eternal Blazing Sun Clergyman",
-
   "_comment006": "Potions-----------------------------------------------------------------------------",
   "item.lotmcraft.empty_bottle": "Empty Bottle",
-
-
   "_comment007": "Damage-----------------------------------------------------------------------------",
   "death.attack.loosing_control": "%1$s lost control.",
-
-
   "_comment008": "Blocks-----------------------------------------------------------------------------",
   "block.lotmcraft.brewing_cauldron": "Brewing Cauldron",
   "block.lotmcraft.void_block": "Void",
   "block.lotmcraft.solid_void_block": "Solid Void",
   "block.lotmcraft.mystical_ring": "Mystical Ring",
-
   "_comment009": "Ingredients-----------------------------------------------------------------------------",
   "item.lotmcraft.lavos_squid_blood": "Lavos Squid Blood",
   "item.lotmcraft.hornacis_gray_mountain_goat_horn": "Horn of a Gray Hornacis Mountain Goat",
@@ -837,7 +794,6 @@
   "item.lotmcraft.whale_of_punishment_stomach": "Stomach of a Whale of Punishment",
   "item.lotmcraft.king_of_green_wings_eye": "Eye of the King of Green Wings",
   "item.lotmcraft.war_comet_core": "Core of a War Comet",
-
   "_comment010": "Pathways-----------------------------------------------------------------------------",
   "lotm.pathway.fool": "Fool",
   "lotm.pathway.error": "Error",
@@ -861,7 +817,6 @@
   "lotm.pathway.justiciar": "Justiciar",
   "lotm.pathway.black_emperor": "Black Emperor",
   "lotm.pathway.wheel_of_fortune": "Wheel of Fortune",
-
   "_comment011": "Sequences-----------------------------------------------------------------------------",
   "lotm.sequence.fool": "Fool",
   "lotm.sequence.attendant_of_mysteries": "Attendant of Mysteries",
@@ -873,7 +828,6 @@
   "lotm.sequence.magician": "Magician",
   "lotm.sequence.clown": "Clown",
   "lotm.sequence.seer": "Seer",
-
   "lotm.sequence.error": "Error",
   "lotm.sequence.worm_of_time": "Worm of Time",
   "lotm.sequence.trojan_horse_of_destiny": "Trojan Horse of Destiny",
@@ -884,7 +838,6 @@
   "lotm.sequence.cryptologist": "Cryptologist",
   "lotm.sequence.swindler": "Swindler",
   "lotm.sequence.marauder": "Marauder",
-
   "lotm.sequence.door": "Door",
   "lotm.sequence.key_of_stars": "Key of Stars",
   "lotm.sequence.planeswalker": "Planeswalker",
@@ -895,7 +848,6 @@
   "lotm.sequence.astrologer": "Astrologer",
   "lotm.sequence.trickmaster": "Trickmaster",
   "lotm.sequence.apprentice": "Apprentice",
-
   "lotm.sequence.visionary": "Visionary",
   "lotm.sequence.author": "Author",
   "lotm.sequence.discerner": "Discerner",
@@ -906,7 +858,6 @@
   "lotm.sequence.psychiatrist": "Psychiatrist",
   "lotm.sequence.telepathist": "Telepathist",
   "lotm.sequence.spectator": "Spectator",
-
   "lotm.sequence.sun": "Sun",
   "lotm.sequence.white_angel": "White Angel",
   "lotm.sequence.lightseeker": "Lightseeker",
@@ -917,7 +868,6 @@
   "lotm.sequence.solar_high_priest": "Solar High Priest",
   "lotm.sequence.light_supplicant": "Light Supplicant",
   "lotm.sequence.bard": "Bard",
-
   "lotm.sequence.tyrant": "Tyrant",
   "lotm.sequence.thunder_god": "Thunder God",
   "lotm.sequence.calamity": "Calamity",
@@ -928,7 +878,6 @@
   "lotm.sequence.seafarer": "Seafarer",
   "lotm.sequence.folk_of_rage": "Folk of Rage",
   "lotm.sequence.sailor": "Sailor",
-
   "lotm.sequence.white_tower": "White Tower",
   "lotm.sequence.omniscient_eye": "Omniscient Eye",
   "lotm.sequence.wisdom_angel": "Wisdom Angel",
@@ -939,7 +888,6 @@
   "lotm.sequence.detective": "Detective",
   "lotm.sequence.student_of_ratiocination": "Student of Ratiocination",
   "lotm.sequence.reader": "Reader",
-
   "lotm.sequence.hanged_man": "Hanged Man",
   "lotm.sequence.dark_angel": "Dark Angel",
   "lotm.sequence.profane_presbyter": "Profane Presbyter",
@@ -950,7 +898,6 @@
   "lotm.sequence.shadow_ascetic": "Shadow Ascetic",
   "lotm.sequence.listener": "Listener",
   "lotm.sequence.secrets_supplicant": "Secrets Supplicant",
-
   "lotm.sequence.darkness": "Darkness",
   "lotm.sequence.knight_of_misfortune": "Knight of Misfortune",
   "lotm.sequence.servant_of_concealment": "Servant of Concealment",
@@ -961,7 +908,6 @@
   "lotm.sequence.nightmare": "Nightmare",
   "lotm.sequence.midnight_poet": "Midnight Poet",
   "lotm.sequence.sleepless": "Sleepless",
-
   "lotm.sequence.death": "Death",
   "lotm.sequence.pale_emperor": "Pale Emperor",
   "lotm.sequence.death_consul": "Death Consul",
@@ -972,7 +918,6 @@
   "lotm.sequence.spirit_medium": "Spirit Medium",
   "lotm.sequence.gravedigger": "Gravedigger",
   "lotm.sequence.corpse_collector": "Corpse Collector",
-
   "lotm.sequence.twilight_giant": "Twilight Giant",
   "lotm.sequence.hand_of_god": "Hand of God",
   "lotm.sequence.glory": "Glory",
@@ -983,7 +928,6 @@
   "lotm.sequence.weapon_master": "Weapon Master",
   "lotm.sequence.pugilist": "Pugilist",
   "lotm.sequence.warrior": "Warrior",
-
   "lotm.sequence.demoness": "Demoness",
   "lotm.sequence.demoness_of_apocalypse": "Demoness of Apocalypse",
   "lotm.sequence.demoness_of_catastrophe": "Demoness of Catastrophe",
@@ -994,7 +938,6 @@
   "lotm.sequence.witch": "Witch",
   "lotm.sequence.instigator": "Instigator",
   "lotm.sequence.assassin": "Assassin",
-
   "lotm.sequence.red_priest": "Red Priest",
   "lotm.sequence.conqueror": "Conqueror",
   "lotm.sequence.weather_warlock": "Weather Warlock",
@@ -1005,7 +948,6 @@
   "lotm.sequence.pyromaniac": "Pyromaniac",
   "lotm.sequence.provoker": "Provoker",
   "lotm.sequence.hunter": "Hunter",
-
   "lotm.sequence.hermit": "Hermit",
   "lotm.sequence.knowledge_emperor": "Knowledge Emperor",
   "lotm.sequence.sage": "Sage",
@@ -1016,7 +958,6 @@
   "lotm.sequence.warlock": "Warlock",
   "lotm.sequence.melee_scholar": "Melee Scholar",
   "lotm.sequence.mystery_pryer": "Mystery Pryer",
-
   "lotm.sequence.paragon": "Paragon",
   "lotm.sequence.illuminator": "Illuminator",
   "lotm.sequence.knowledge_master": "Knowledge Master",
@@ -1027,7 +968,6 @@
   "lotm.sequence.appraiser": "Appraiser",
   "lotm.sequence.archeologist": "Archeologist",
   "lotm.sequence.savant": "Savant",
-
   "lotm.sequence.wheel_of_fortune": "Wheel of Fortune",
   "lotm.sequence.snake_of_mercury": "Snake of Mercury",
   "lotm.sequence.soothsayer": "Soothsayer",
@@ -1038,7 +978,6 @@
   "lotm.sequence.lucky_one": "Lucky One",
   "lotm.sequence.robot": "Robot",
   "lotm.sequence.monster": "Monster",
-
   "lotm.sequence.mother": "Mother",
   "lotm.sequence.naturewalker": "Naturewalker",
   "lotm.sequence.desolate_matriarch": "Desolate Matriarch",
@@ -1049,7 +988,6 @@
   "lotm.sequence.harvest_priest": "Harvest Priest",
   "lotm.sequence.doctor": "Doctor",
   "lotm.sequence.planter": "Planter",
-
   "lotm.sequence.moon": "Moon",
   "lotm.sequence.beauty_goddess": "Beauty Goddess",
   "lotm.sequence.life-giver": "Life-Giver",
@@ -1060,7 +998,6 @@
   "lotm.sequence.vampire": "Vampire",
   "lotm.sequence.beast_tamer": "Beast Tamer",
   "lotm.sequence.apothecary": "Apothecary",
-
   "lotm.sequence.abyss": "Abyss",
   "lotm.sequence.filthy_monarch": "Filthy Monarch",
   "lotm.sequence.bloody_archduke": "Bloody Archduke",
@@ -1071,7 +1008,6 @@
   "lotm.sequence.serial_killer": "Serial Killer",
   "lotm.sequence.unwinged_angel": "Unwinged Angel",
   "lotm.sequence.criminal": "Criminal",
-
   "lotm.sequence.chained": "Chained",
   "lotm.sequence.abomination": "Abomination",
   "lotm.sequence.ancient_bane": "Ancient Bane",
@@ -1082,7 +1018,6 @@
   "lotm.sequence.werewolf": "Werewolf",
   "lotm.sequence.lunatic": "Lunatic",
   "lotm.sequence.prisoner": "Prisoner",
-
   "lotm.sequence.black_emperor": "Black Emperor",
   "lotm.sequence.prince_of_abolition": "Prince of Abolition",
   "lotm.sequence.duke_of_entropy": "Duke of Entropy",
@@ -1093,7 +1028,6 @@
   "lotm.sequence.briber": "Briber",
   "lotm.sequence.barbarian": "Barbarian",
   "lotm.sequence.lawyer": "Lawyer",
-
   "lotm.sequence.justiciar": "Justiciar",
   "lotm.sequence.hand_of_order": "Hand of Order",
   "lotm.sequence.balancer": "Balancer",
@@ -1104,15 +1038,12 @@
   "lotm.sequence.interrogator": "Interrogator",
   "lotm.sequence.sheriff": "Sheriff",
   "lotm.sequence.arbiter": "Arbiter",
-
   "_comment012": "Advancements-----------------------------------------------------------------------------",
   "advancements.lotmcraft.root.title": "Path of the Divine",
   "advancements.lotmcraft.root.description": "Begin your journey as a Beyonder",
-
   "_comment013": "Sealed Artifacts-------------------------------------------------------------------------",
   "item.lotm.sealed_artifact": "Sealed Artifact",
   "lotm.sealed_artifact.generic": "%s of %s",
-
   "lotm.sealed_artifact.type.bell": "Bell",
   "lotm.sealed_artifact.type.chain": "Chain",
   "lotm.sealed_artifact.type.sword": "Sword",
@@ -1120,7 +1051,6 @@
   "lotm.sealed_artifact.type.gem": "Gem",
   "lotm.sealed_artifact.type.star": "Star",
   "lotm.sealed_artifact.type.item": "Item",
-
   "lotm.sealed_artifact.pathway.fool_1": "Mysteries",
   "lotm.sealed_artifact.pathway.error_1": "Deception",
   "lotm.sealed_artifact.pathway.door_1": "Stars",
@@ -1143,29 +1073,22 @@
   "lotm.sealed_artifact.pathway.chained_1": "the Bound",
   "lotm.sealed_artifact.pathway.savant_1": "Craftsmanship",
   "lotm.sealed_artifact.pathway.hermit_1": "Knowledge",
-
   "lotm.sealed_artifact.abilities": "Abilities",
   "lotm.sealed_artifact.negative_effect": "Negative Effect",
-
   "lotm.negative_effect.hearing_whispers": "Hearing Whispers",
   "lotm.negative_effect.drain_health": "Draining Health",
   "lotm.negative_effect.drain_hunger": "Draining Hunger",
   "lotm.negative_effect.random_teleport": "Random Teleport",
-
   "lotm.whisper.0": "§4They're watching...",
   "lotm.whisper.1": "§4The voices never stop...",
   "lotm.whisper.2": "§4You shouldn't have touched this...",
   "lotm.whisper.3": "§4It's inside you now...",
   "lotm.whisper.4": "§4There's no escape...",
-
-
   "lotm.calamity.tornado": "Tornado",
   "lotm.calamity.earthquake": "Earthquake",
-
   "lotm.sefirot.no_sefirot": "You don't have a Sefirot",
   "lotm.sefirot.sefirah_castle_already_occupied": "Sefirah Castle is occupied already",
   "lotm.sefirot.wrong_pathway": "Your Pathway does not align with the Sefirot",
-
   "lotm.ally.no_target": "No valid target found",
   "lotm.ally.added": "Allied with %s",
   "lotm.ally.removed": "Removed alliance with %s",
@@ -1180,7 +1103,6 @@
   "lotm.ally.request_denied_self": "Ally request denied",
   "lotm.ally.no_request": "No pending ally request",
   "lotm.ally.requester_offline": "Requester is no longer online",
-
   "_comment014": "Quests-------------------------------------------------------------------------",
   "lotm.quest.already_accepted": "You have already accepted/completed this quest",
   "lotm.quest.already_active": "You already have an active quest",
@@ -1197,55 +1119,42 @@
   "lotm.quest.acceptance.digestion": "Digestion: %s",
   "lotm.quest.acceptance.sequence": "Recommended Sequence: %s",
   "lotm.quest.cannot_accept": "You cannot accept this quest",
-
   "lotm.quest.impl.kill_zombies": "Kill Zombies",
   "lotm.quest.impl.kill_zombies.description": "Kill %s Zombies to complete this quest",
   "lotm.quest.impl.kill_zombies.lore": "Zombies are plaguing the area. We need to thin their numbers.",
-
   "lotm.quest.impl.defend_village": "Defend the Village",
   "lotm.quest.impl.defend_village.description": "Kill all the monsters that are attacking the villagers",
   "lotm.quest.impl.defend_village.lore": "The village is under attack! Defend the villagers and drive off the monsters!",
-
   "lotm.quest.impl.kill_tyrant_seq4": "Kill the Sailor Demigod",
   "lotm.quest.impl.kill_tyrant_seq4.description": "Search around for the structure to summon the Cataclysmic Interrer and defeat them",
   "lotm.quest.impl.kill_tyrant_seq4.lore": "The Cataclysmic Interrer is terrorizing all who live here, defeat them and bring peace to the land!",
-
   "lotm.quest.impl.kill_seq4": "Kill the Demigod",
   "lotm.quest.impl.kill_seq4.description": "Search around for the structure to summon the Demigod and defeat them",
   "lotm.quest.impl.kill_seq4.lore": "A Demigod has gone mad and is killing all who live here, defeat them before its too late!",
-
   "lotm.quest.impl.kill_seq3": "Kill the Saint",
   "lotm.quest.impl.kill_seq3.description": "Search around for the structure to summon the Saint and defeat them",
   "lotm.quest.impl.kill_seq3.lore": "A Saint has strayed from the church and is bringing chaos, defeat them before its too late!",
-
   "lotm.quest.impl.kill_seq2": "Kill the Angel",
   "lotm.quest.impl.kill_seq2.description": "Search around for the structure to summon the Angel and defeat them",
   "lotm.quest.impl.kill_seq2.lore": "An Angel has fallen and is killing all who live here, defeat them before its too late!",
-
   "lotm.quest.impl.kill_seq1": "Kill the Archangel",
   "lotm.quest.impl.kill_seq1.description": "Search around for the structure to summon the Archangel and defeat them",
   "lotm.quest.impl.kill_seq1.lore": "An Archangel is on a rampage, defeat them before its too late!",
-
   "lotm.quest.impl.collect_low_seq_characteristics": "Collect Beyonder Characteristics",
   "lotm.quest.impl.collect_low_seq_characteristics.description": "Bring %s low-sequence Beyonder Characteristics (Seq 7-9).",
   "lotm.quest.impl.collect_low_seq_characteristics.lore": "Power attracts power. Gather characteristics and hand them over for advancement materials.",
-
   "lotm.quest.impl.find_random_structures": "Find Ancient Structures",
   "lotm.quest.impl.find_random_structures.description": "Find Ancient Structure and show it to world.",
   "lotm.quest.impl.find_random_structures.lore": "Forgotten places contain forgotten truths. Find them and return.",
-
   "lotm.quest.impl.kill_player_target": "Assassinate Target",
   "lotm.quest.impl.kill_player_target.description": "Eliminate the marked player target.",
   "lotm.quest.impl.kill_player_target.lore": "A name has been chosen. Blood must be drawn.",
-
   "lotm.quest.impl.help_beyonder": "Help this Beyonder overcome his enemies",
   "lotm.quest.impl.help_beyonder.description": "Face a wave of enemies and defeat them all.",
   "lotm.quest.impl.help_beyonder.lore": "This beyonder have angered forces that are beyond his power.",
-
   "lotm.quest.impl.deliver_item": "Deliver the Package",
   "lotm.quest.impl.deliver_item.description": "Deliver an item to the marked location.",
   "lotm.quest.impl.deliver_item.lore": "Discrete delivery. No mistakes.",
-
   "lotm.griefing": "Griefing Enabled",
   "lotm.griefing_required": "Griefing must be enabled",
   "lotm.temporarily_disabled": "This ability is temporarily disabled and will be reenabled shortly",
@@ -1274,13 +1183,11 @@
   "lotm.copied_ability_wheel.title": "Copied Abilities",
   "lotm.copied_ability_wheel.no_abilities": "No copied abilities available",
   "lotmcraft.griefing_enabled_required": "Enable griefing for this ability to work",
-
   "lotmcraft.own_praying": "You have heard your own praying",
   "lotmcraft.far_away_praying": "You have heard whispers of praying, but you are too far away to hear them clearly",
   "lotmcraft.honorific_praying": "You have heard praying from %1$s\nTheir general info: Pathway - %2$s; Sequence - %3$d; Position - %4$d %5$d %6$d",
   "lotmcraft.honorific_praying_message": "You have heard message: %s",
   "lotmcraft.honorific_timeout": "You have reached timeout for praying!",
-
   "lotmcraft.honorific_praying_send_message_button": "[ SEND MESSAGE ]",
   "lotmcraft.honorific_praying_send_message_desc": "Will send the next message you type in chat to the prayer",
   "lotmcraft.honorific_praying_teleport_button": "[ TELEPORT ]",
@@ -1288,5 +1195,56 @@
   "lotmcraft.honorific_praying_not_met_req_button": "[ INACCESSIBLE ]",
   "lotmcraft.honorific_praying_not_met_req_desc": "You have not met requirements to use this option",
   "lotmcraft.honorific_praying_use_skill_button": "[ USE SKILL ]",
-  "lotmcraft.honorific_praying_use_skill_desc": "Will use one of your abilities for/against the prayer"
+  "lotmcraft.honorific_praying_use_skill_desc": "Will use one of your abilities for/against the prayer",
+  "lotm.marionette_village.warning": "LOSING CONTROL",
+  "item.lotmcraft.lavos_squid_blood_energized": "Energized Lavos Squid Blood",
+  "item.lotmcraft.hornacis_gray_mountain_goat_horn_energized": "Energized Horn of a Gray Hornacis Mountain Goat",
+  "item.lotmcraft.true_root_of_mist_treant_energized": "Energized True Root of a Mist Treant",
+  "item.lotmcraft.thousand_faced_hunter_blood_energized": "Energized Blood of a Thousand Faced Hunter",
+  "item.lotmcraft.ancient_wraith_dust_energized": "Energized Dust of an Ancient Wraith",
+  "item.lotmcraft.bizarro_bane_eye_energized": "Energized Eye of a Bizarro Bane",
+  "item.lotmcraft.crystal_sunflower_energized": "Energized Crystal Sunflower",
+  "item.lotmcraft.powder_of_dazzling_soul_energized": "Energized Powder of Dazzling Soul",
+  "item.lotmcraft.spirit_pact_tree_fruit_energized": "Energized Spirit Pact Tree's Fruit",
+  "item.lotmcraft.crystallized_roots_energized": "Energized Crystallized Roots",
+  "item.lotmcraft.pure_white_brilliant_rock_energized": "Energized Pure White Brilliant Rock",
+  "item.lotmcraft.golden_blood_energized": "Energized Golden Blood",
+  "item.lotmcraft.sun_orb_energized": "Energized Sun Orb",
+  "item.lotmcraft.illusion_crystal_energized": "Energized Illusion Crystal",
+  "item.lotmcraft.spirit_eater_stomach_pouch_energized": "Energized Stomach Pouch of a Spirit Eater",
+  "item.lotmcraft.meteorite_crystal_energized": "Energized Meteorite Crystal",
+  "item.lotmcraft.ancient_wraith_artifact_energized": "Energized Artifact of an Ancient Wraith",
+  "item.lotmcraft.shadowless_demonic_wolf_heart_energized": "Energized Heart of a Shadowless Demonic Wolf",
+  "item.lotmcraft.golden_phoenix_eyes_energized": "Energized Eye of a Golden Phoenix",
+  "item.lotmcraft.mist_watcher_crystal_energized": "Energized Crystal left by a Mist Watcher",
+  "item.lotmcraft.murloc_bladder_energized": "Energized Murloc's Bladder",
+  "item.lotmcraft.dragon_eyed_condor_eyeball_energized": "Energized Eyeball of a Dragon Eyed Condor",
+  "item.lotmcraft.ancient_logbook_energized": "Energized Ancient Logbook",
+  "item.lotmcraft.blue_shadow_falcon_feathers_energized": "Energized Feathers of a Blue Shadow Falcon",
+  "item.lotmcraft.siren_vocal_sac_energized": "Energized Siren's vocal sac",
+  "item.lotmcraft.whale_of_punishment_stomach_energized": "Energized Stomach of a Whale of Punishment",
+  "item.lotmcraft.king_of_green_wings_eye_energized": "Energized Eye of the King of Green Wings",
+  "item.lotmcraft.midnight_beauty_flower_energized": "Energized Midnight Beauty Flower",
+  "item.lotmcraft.soul_snaring_bell_flower_energized": "Energized Soul Snaring Bell Flower",
+  "item.lotmcraft.dream_eating_raven_heart_energized": "Energized Heart of a Dream Eating Raven",
+  "item.lotmcraft.deep_sleeper_skull_energized": "Energized Skull of a Deep Sleeper",
+  "item.lotmcraft.source_of_mad_dreams_energized": "Energized Source of Mad Dreams",
+  "item.lotmcraft.red_chestnut_flower_energized": "Energized Red Chestnut Flower",
+  "item.lotmcraft.redcrown_balsam_powder_energized": "Energized Redcrown Balsam Powder",
+  "item.lotmcraft.magma_elf_core_energized": "Energized Core of a Magma Elf",
+  "item.lotmcraft.sphinx_brain_energized": "Energized Brain of a Sphinx",
+  "item.lotmcraft.black_hunting_spider_composite_eyes_energized": "Energized Composite Eyes of a Black Hunting Spider",
+  "item.lotmcraft.magma_giant_core_energized": "Energized Core of a Magma Giant",
+  "item.lotmcraft.war_comet_core_energized": "Energized Core of a War Comet",
+  "item.lotmcraft.goat_horned_blackfish_blood_energized": "Energized Blood from a Goat Horned Blackfish",
+  "item.lotmcraft.rainbow_salamander_pituitary_gland_energized": "Energized Pituitary Gland of a Rainbow Salamander",
+  "item.lotmcraft.tree_of_elders_fruit_energized": "Energized Fruit of the Tree of Elders",
+  "item.lotmcraft.illusory_chime_tree_fruit_energized": "Energized Fruit from an Illusory Chime Tree",
+  "item.lotmcraft.dream_catcher_heart_energized": "Energized Heart of a Dream Catcher",
+  "item.lotmcraft.black_feather_of_monster_bird_energized": "Energized Black Feather of Monster Bird",
+  "item.lotmcraft.abyss_demonic_fish_blood_energized": "Energized Blood of an Abyss Demonic Fish",
+  "item.lotmcraft.agate_peacock_egg_energized": "Energized Egg of an Agate Peacock",
+  "item.lotmcraft.succubus_eyes_energized": "Energized Eyes of a Succubus",
+  "item.lotmcraft.shadow_lizard_scales_energized": "Energized Scales of a Shadow Lizard",
+  "ability.lotmcraft.host_controlling.control_host": "Control Host"
 }

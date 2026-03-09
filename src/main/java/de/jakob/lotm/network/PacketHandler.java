@@ -257,6 +257,12 @@ public class PacketHandler {
         );
 
         registrar.playToClient(
+                MarionetteVillageWarningPacket.TYPE,
+                MarionetteVillageWarningPacket.STREAM_CODEC,
+                MarionetteVillageWarningPacket::handle
+        );
+
+        registrar.playToClient(
                 RingEffectPacket.TYPE,
                 RingEffectPacket.STREAM_CODEC,
                 RingEffectPacket::handle

@@ -111,6 +111,7 @@ public class ModEvents {
         DisableAbilityCommand.register(event.getDispatcher());
         EnableAbilityCommand.register(event.getDispatcher());
         HonorificNameCommand.register(event.getDispatcher());
+        GrantRitualCommand.register(event.getDispatcher());
     }
 
     @SubscribeEvent

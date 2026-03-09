@@ -3,16 +3,20 @@ package de.jakob.lotm.events;
 import com.mojang.datafixers.util.Pair;
 import de.jakob.lotm.LOTMCraft;
 import de.jakob.lotm.attachments.ModAttachments;
+import de.jakob.lotm.attachments.SefirotData;
+import de.jakob.lotm.sefirah.SefirahHandler;
 import de.jakob.lotm.util.BeyonderData;
 import de.jakob.lotm.util.beyonderMap.PendingPrayer;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.ServerChatEvent;
 
 import java.util.*;
+import java.util.Locale;
 
 @EventBusSubscriber(modid = LOTMCraft.MOD_ID)
 public class HonorificNamesEventHandler {
@@ -58,6 +62,12 @@ public class HonorificNamesEventHandler {
         }
 
         String rawMessage = event.getRawText();
+
+        if (event.getPlayer() instanceof ServerPlayer serverPlayer && isCelestialWorthyInvocation(rawMessage)) {
+            if (handleCelestialWorthyInvocation(serverPlayer)) {
+                return;
+            }
+        }
 
         if(isInTransferring.containsKey(playerUUID)){
             var target = event.getPlayer().server.getPlayerList().
@@ -186,4 +196,38 @@ public class HonorificNamesEventHandler {
     public static boolean isHonorificNamePart(String str) {
         return BeyonderData.beyonderMap.containsHonorificNameWithLine(str);
     }
+    private static boolean isCelestialWorthyInvocation(String message) {
+        String normalized = message.toLowerCase(Locale.ROOT);
+        return normalized.contains("celestial worthy");
+    }
+
+    private static boolean handleCelestialWorthyInvocation(ServerPlayer player) {
+        String pathway = BeyonderData.getPathway(player);
+        int sequence = BeyonderData.getSequence(player);
+        if (sequence != 1 || (!"fool".equals(pathway) && !"door".equals(pathway) && !"error".equals(pathway))) {
+            return false;
+        }
+
+        final String sefirahCastle = "sefirah_castle";
+        SefirotData data = SefirotData.get(player.server);
+        UUID owner = data.getOwnerOfSefirot(sefirahCastle);
+
+        if (owner == null) {
+            SefirahHandler.claimSefirot(player, sefirahCastle, true);
+            player.sendSystemMessage(Component.literal("You are acknowledged by Sefirah Castle.").withStyle(ChatFormatting.LIGHT_PURPLE));
+            SefirahHandler.teleportToSefirot(player, true);
+            return true;
+        }
+
+        if (owner.equals(player.getUUID())) {
+            SefirahHandler.teleportToSefirot(player, true);
+            return true;
+        }
+
+        ServerPlayer ownerPlayer = player.server.getPlayerList().getPlayer(owner);
+        String ownerName = ownerPlayer != null ? ownerPlayer.getName().getString() : "another bearer";
+        player.sendSystemMessage(Component.literal("Sefirah Castle already has an owner: " + ownerName + ". Defeat them to inherit it.").withStyle(ChatFormatting.DARK_PURPLE));
+        return true;
+    }
+
 }

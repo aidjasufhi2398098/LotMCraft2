@@ -9,19 +9,21 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.level.ChunkPos;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.EntityJoinLevelEvent;
 import net.neoforged.neoforge.event.entity.EntityTeleportEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 
 @EventBusSubscriber(modid = LOTMCraft.MOD_ID)
 public class MarionetteEventHandler {
-    
+
     @SubscribeEvent
     public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
         if (event.getEntity() instanceof Mob mob && !event.getLevel().isClientSide) {
             MarionetteComponent component = mob.getData(ModAttachments.MARIONETTE_COMPONENT.get());
-            
+
             // Re-add marionette goals if this entity is a marionette
             if (component.isMarionette()) {
                 mob.targetSelector.removeAllGoals(goal ->
@@ -47,6 +49,44 @@ public class MarionetteEventHandler {
 
                 loadChunksAroundEntity(serverLevel, mob, 2);
             }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onEntityTick(EntityTickEvent.Post event) {
+        if (!(event.getEntity() instanceof Mob mob) || mob.level().isClientSide) {
+            return;
+        }
+
+        MarionetteComponent component = mob.getData(ModAttachments.MARIONETTE_COMPONENT.get());
+        if (!component.isMarionette()) {
+            return;
+        }
+
+        if (component.isForcedWalking()) {
+            Vec3 target = component.getWalkTarget();
+            Vec3 delta = target.subtract(mob.position());
+            double horizontalDistance = Math.sqrt(delta.x * delta.x + delta.z * delta.z);
+
+            if (horizontalDistance < 0.6) {
+                component.stopForcedWalk();
+                mob.setDeltaMovement(Vec3.ZERO);
+                mob.getNavigation().stop();
+                return;
+            }
+
+            double speed = 0.12;
+            Vec3 movement = new Vec3(delta.x / Math.max(horizontalDistance, 0.0001) * speed, mob.getDeltaMovement().y, delta.z / Math.max(horizontalDistance, 0.0001) * speed);
+            mob.setDeltaMovement(movement);
+            mob.hurtMarked = true;
+            return;
+        }
+
+        // Default marionette behavior: no independent movement/AI-like wandering.
+        if (component.isMovementLocked()) {
+            mob.setDeltaMovement(Vec3.ZERO);
+            mob.getNavigation().stop();
+            mob.setTarget(null);
         }
     }
 

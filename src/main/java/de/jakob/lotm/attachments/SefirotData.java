@@ -56,6 +56,29 @@ public class SefirotData extends SavedData {
         return claimedSefirah.getOrDefault(uuid, "");
     }
 
+    public UUID getOwnerOfSefirot(String sefirot) {
+        for (Map.Entry<UUID, String> entry : claimedSefirah.entrySet()) {
+            if (sefirot.equals(entry.getValue())) {
+                return entry.getKey();
+            }
+        }
+        return null;
+    }
+
+    public boolean transferSefirot(UUID from, UUID to, String sefirot) {
+        if (from == null || to == null || from.equals(to)) {
+            return false;
+        }
+        if (!sefirot.equals(claimedSefirah.get(from))) {
+            return false;
+        }
+        claimedSefirah.remove(from);
+        claimedSefirah.put(to, sefirot);
+        setDirty();
+        return true;
+    }
+
+
     public void setIsInSefirot(UUID uuid, boolean inSefirot) {
         if(!inSefirot) {
             isInSefirot.remove(uuid);
