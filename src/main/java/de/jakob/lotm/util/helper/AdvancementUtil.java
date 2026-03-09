@@ -316,11 +316,10 @@ public class AdvancementUtil {
         }
 
         int amonSequence = Math.max(1, sequence);
-        BeyonderNPCEntity amon = new BeyonderNPCEntity(ModEntities.BEYONDER_NPC.get(), player.level(), true, "amon", "error", amonSequence);
-        BeyonderNPCEntity amon = new BeyonderNPCEntity(ModEntities.BEYONDER_NPC.get(), player.level(), true, "amon", pathway, amonSequence);
+        BeyonderNPCEntity spawnedAmonNpc = new BeyonderNPCEntity(ModEntities.BEYONDER_NPC.get(), player.level(), true, "amon", "error", amonSequence);
         var look = player.getLookAngle().normalize();
-        amon.setPos(player.getX() + look.x * 2.5, player.getY(), player.getZ() + look.z * 2.5);
-        player.serverLevel().addFreshEntity(amon);
+        spawnedAmonNpc.setPos(player.getX() + look.x * 2.5, player.getY(), player.getZ() + look.z * 2.5);
+        player.serverLevel().addFreshEntity(spawnedAmonNpc);
     }
 
     private static boolean hasAdvancement(ServerPlayer player, net.minecraft.resources.ResourceLocation advancementId) {
